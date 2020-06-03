@@ -7,20 +7,7 @@ import Recipes from './components/recipe'
 import BecomeUser from './components/becomeUser'
 
 
-
 function App() {  
-
-  const [savedRecipes, setSavedRecipes]= useState([]);
-
-function pushFunction(){
-  setSavedRecipes([ ... savedRecipes, {
-    value:1
-    
-
-  }])
-  console.log(savedRecipes)
-
-}
 
   return (
     <div className="App">
@@ -44,8 +31,8 @@ function pushFunction(){
         
         <Switch>
             <Route exact path="/">
-            <div class="masonry-wrapper">
-        <div class="masonry">
+            <div className="masonry-wrapper">
+        <div className="masonry">
             <Recipes />
             </div>
             </div>
