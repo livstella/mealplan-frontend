@@ -25,7 +25,9 @@ export default function() {
             description={element.description}
             author={element.author}
           />
+          
         ))}
+        
     </div>
   );
 }
