@@ -20,7 +20,7 @@ export default function() {
   function saveFunction(recipe) {
   
     axios
-      .post("http://localhost:3001/user/save-recipe", {
+      .post("https://dry-harbor-57855.herokuapp.com/user/save-recipe", {
         id: recipe
       })
       .then(function (response) {
