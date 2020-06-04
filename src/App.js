@@ -1,13 +1,37 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Link, Switch, Route } from "react-router-dom";
 import { Anchor, Box, Grommet, Header, Nav, Button } from "grommet";
 import { grommet } from "grommet/themes";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 import './App.css';
-import Recipes from './components/recipe'
-import BecomeUser from './components/becomeUser'
+import Recipes from './components/recipe';
+import BecomeUser from './components/becomeUser';
+import LogIn from './components/login'
+import MyRecipes from './components/myRecipes'
+
+
+const alertHelloWorld = (token) => {
+  const config = {
+    headers: {
+      Authorization: token,
+    },
+  };
+  axios
+    .get("http://localhost:3001/user/test", config)
+    .then(function (response) {
+      // handle success
+      window.location.href = "/my-recipes";
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+};
 
 
 function App() {  
+  const [cookies, setCookie, removeCookie] = useCookies(["myCookies"]);
 
   return (
     <div className="App">
@@ -21,9 +45,10 @@ function App() {
             </Anchor>
         </Box>
         <Nav direction="row">
-        <Link to="/become-user"> <Button primary label="Sign me up!"/> </Link>
         <Link to="/"> <Button primary label="home"  /></Link>
-        <Link to="/test">  <Button primary label="Test" /> </Link>
+        <Link to="/become-user"> <Button primary label="Sign me up!"/> </Link>
+        <Link to="/login">  <Button primary label="Log in" /> </Link>
+        <Button primary label="My Recipes" onClick={() => alertHelloWorld(cookies["auth-token"])} />
         </Nav>
         </Header>
         </Grommet>
@@ -39,6 +64,12 @@ function App() {
           </Route>
           <Route path="/become-user">
             <BecomeUser />
+          </Route>
+          <Route path="/login">
+            <LogIn />
+          </Route>
+          <Route path="/my-recipes">
+            <MyRecipes />
           </Route>
         </Switch>
  
