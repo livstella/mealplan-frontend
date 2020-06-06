@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 import RecipeLayout from "./recipeLayout";
 
 export default function() {
   const [data, setData] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(["myCookies"]);
 
   useEffect(() => {
     fetch("https://dry-harbor-57855.herokuapp.com/recipe-with-ingredients")
@@ -12,17 +14,20 @@ export default function() {
     .catch((error) => console.log(error))
 },[]);
 
-/*  function saveFunction(recipe){
-    console.log(recipe)
-  }
-*/
 
-  function saveFunction(recipe) {
-  
+
+
+  function saveFunction(recipe,token) {
+    var postData={
+      id: recipe
+    }
+    const config = {
+      headers: {
+        Authorization: token,
+      },
+    } 
     axios
-      .post("https://dry-harbor-57855.herokuapp.com/user/save-recipe", {
-        id: recipe
-      })
+      .post("https://dry-harbor-57855.herokuapp.com/user/save-recipe", postData, config)
       .then(function (response) {
         console.log(response);
       })
@@ -44,7 +49,7 @@ export default function() {
             imgUrl={element.img_url}
             description={element.description}
             author={element.author}
-            saveFunction={()=> saveFunction(element.id)}
+            saveFunction={()=> saveFunction(element.id, cookies["auth-token"])}
           />
           
         ))}

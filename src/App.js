@@ -11,14 +11,14 @@ import LogIn from './components/login'
 import MyRecipes from './components/myRecipes'
 
 
-const alertHelloWorld = (token) => {
+const cookieVerify = (token) => {
   const config = {
     headers: {
       Authorization: token,
     },
   };
   axios
-    .get("http://localhost:3001/user/test", config)
+    .get("https://dry-harbor-57855.herokuapp.com/user/test", config)
     .then(function (response) {
       // handle success
       window.location.href = "/my-recipes";
@@ -48,7 +48,7 @@ function App() {
         <Link to="/"> <Button primary label="home"  /></Link>
         <Link to="/become-user"> <Button primary label="Sign me up!"/> </Link>
         <Link to="/login">  <Button primary label="Log in" /> </Link>
-        <Button primary label="My Recipes" onClick={() => alertHelloWorld(cookies["auth-token"])} />
+        <Button primary label="My Recipes" onClick={() => cookieVerify(cookies["auth-token"])} />
         </Nav>
         </Header>
         </Grommet>

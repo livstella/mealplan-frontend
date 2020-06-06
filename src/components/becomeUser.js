@@ -30,7 +30,7 @@ function createUser(e) {
 export default function () {
   return (
     <div className="layout-wrapper">
-      <h3>Want to be a user? Great! Just fill in your info:</h3>
+      <h3>Want to be a user? Great!  You know how to internet, so you know what to do now.</h3>
       <form onSubmit={createUser}>
         <label>
           Username:
