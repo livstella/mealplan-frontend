@@ -14,7 +14,7 @@ import MyRecipes from './components/myRecipes'
 const cookieVerify = (token) => {
   const config = {
     headers: {
-      Authorization: token,
+      authorization: token,
     },
   };
   axios

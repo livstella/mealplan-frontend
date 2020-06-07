@@ -1,7 +1,6 @@
 import React from 'react';
 import './recipeLayout.css'
-import { Box, Button, Grommet, Text } from "grommet";
-import { grommet } from "grommet/themes";
+import { Box, Button, Text } from "grommet";
 import { Add } from "grommet-icons";
 
 
@@ -13,7 +12,7 @@ export default function(props){
         <div className="masonry-item">
         <div className="masonry-content">
             <img src={imgUrl} alt={name}/>
-            <h3 class="masonry-title">{name}</h3>
+            <h3 className="masonry-title">{name}</h3>
             <p className="masonry-description">{description} from {author}</p>
             <Button hoverIndicator="light-1" onClick={saveFunction}>
         <Box pad="small" direction="row" align="center" gap="small">
