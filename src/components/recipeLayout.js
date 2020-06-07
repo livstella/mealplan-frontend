@@ -1,5 +1,5 @@
 import React from 'react';
-import './recipeLayout.css'
+import './styles/recipeLayout.css'
 import { Box, Button, Text } from "grommet";
 import { Add } from "grommet-icons";
 

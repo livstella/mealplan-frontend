@@ -69,7 +69,11 @@ function App() {
             <LogIn />
           </Route>
           <Route path="/my-recipes">
+        <div className="masonry-wrapper">
+        <div className="masonry">
             <MyRecipes />
+            </div>
+            </div>
           </Route>
         </Switch>
  

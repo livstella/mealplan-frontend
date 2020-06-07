@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./becomeUser.css";
+import "./styles/becomeUser.css";
 
 
 function createUser(e) {

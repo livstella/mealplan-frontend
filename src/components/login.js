@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import "./becomeUser.css";
+import "./styles/becomeUser.css";
 
 function login(setCookie) {
 
@@ -10,7 +10,7 @@ function login(setCookie) {
   
 
   axios
-    .post("http://localhost:3001/user/login", {
+    .post("https://dry-harbor-57855.herokuapp.com/login", {
       username: usernameInput,
       password: passwordInput,
     })
