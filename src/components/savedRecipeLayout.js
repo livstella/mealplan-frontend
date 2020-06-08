@@ -1,11 +1,12 @@
 import React from 'react';
 import './styles/savedRecipeLayout.css'
+import { Button } from "grommet";
 
 
 
 
 export default function(props){
-    const { imgUrl, name, author,  description } = props;
+    const { imgUrl, name, author,  description, deleteFunction } = props;
     return(
         <div className="wrapper">
             <div className="masonry-item">
@@ -13,6 +14,7 @@ export default function(props){
                 <img src={imgUrl} alt={name}/>
                 <h3 className="masonry-title">{name}</h3>
                 <p className="masonry-description">{description} from {author}</p>
+                <Button primary label="Delete from My Recipes" onClick={deleteFunction} />
                 
             </div>
             </div>

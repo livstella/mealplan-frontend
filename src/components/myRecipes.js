@@ -26,6 +26,30 @@ export default function(props){
 
 
 
+
+        function deleteFunction(recipe,token){
+     
+              axios
+                .delete("https://dry-harbor-57855.herokuapp.com/user/delete-recipe", {
+                    headers: {
+                      Authorization: token
+                    },
+                    data: {
+                        id: recipe
+                    }
+                  })
+                .then(function (response) {
+                  console.log(response);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+        
+        }
+        
+
+
+
     return(
         <div>
             <ShoppingLayout />
@@ -39,6 +63,7 @@ export default function(props){
                 imgUrl={element.img_url}
                 description={element.description}
                 author={element.author}
+                deleteFunction={()=>deleteFunction(element.savedid, cookies["auth-token"])}
                 
                 />
                 
