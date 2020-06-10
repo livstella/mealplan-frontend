@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Switch, Route } from "react-router-dom";
-import { Anchor, Box, Grommet, Header, Nav, Button } from "grommet";
+import { Anchor, Box, Grommet, Header, Nav, Button, Menu  } from "grommet";
 import { Home } from "grommet-icons";
 import { grommet } from "grommet/themes";
 import axios from "axios";
@@ -54,6 +54,7 @@ function logOut(tokenCookie){
             <Link to="/login">  <Button primary label="Log in" color="#F26157" id="logButton"/> </Link>
             <Button primary label="My Recipes" color="#F26157" onClick={() => cookieVerify(cookies["auth-token"])} />
             <Button primary label="Log Out" color="#F26157" onClick={() => logOut("auth-token")} />
+  
           </Nav>
           </Header>
         </Grommet>
