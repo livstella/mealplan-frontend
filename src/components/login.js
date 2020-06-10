@@ -9,6 +9,7 @@ function login(setCookie) {
 
   const usernameInput = document.getElementById("username").value;
   const passwordInput = document.getElementById("password").value;
+  const logButton = document.getElementById("logButton")
   
 
   axios
@@ -19,7 +20,8 @@ function login(setCookie) {
     .then(function (response) {
       // handle success
       setCookie("auth-token", response.data);
-      
+      //window.location.href = "/my-recipes";
+      console.log(logButton.value)
     })
     .catch(function (error) {
       // handle error

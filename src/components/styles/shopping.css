@@ -11,10 +11,13 @@ ul{
     border-radius: 6px;
     padding-top:10px;
     padding-bottom: 10px;
-
 }
 
-
+@media only screen and (min-width: 1024px) {
+    .shopping-body {
+      margin-right: 40px;
+    }
+}
 
 input[type = "checkbox"]:checked + label {
     text-decoration: line-through;

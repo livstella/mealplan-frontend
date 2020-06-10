@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Switch, Route } from "react-router-dom";
 import { Anchor, Box, Grommet, Header, Nav, Button } from "grommet";
+import { Home } from "grommet-icons";
 import { grommet } from "grommet/themes";
 import axios from "axios";
 import { useCookies } from "react-cookie";
@@ -30,22 +31,29 @@ const cookieVerify = (token) => {
 };
 
 
+
 function App() {  
   const [cookies, setCookie, removeCookie] = useCookies(["myCookies"]);
+
+  
+function logOut(tokenCookie){
+  removeCookie([tokenCookie]);
+  window.location.href = "/";
+
+}
 
   return (
     <div className="App">  
         <Grommet theme={grommet}>
           <Header background="dark-1" pad="medium">
             <Box direction="row" align="center" gap="small">
-            <Anchor color="white" href="/"> Your Meal Plan </Anchor>
+            <Anchor color="white" href="/" size="large"><Home /> Liv Healthy </Anchor>
             </Box>
           <Nav direction="row">
-            <Link to="/"> <Button primary label="Home" color="#F26157" /></Link>
             <Link to="/become-user"> <Button primary label="Sign me up!"color="#F26157" /> </Link>
-            <Link to="/login">  <Button primary label="Log in" color="#F26157"/> </Link>
+            <Link to="/login">  <Button primary label="Log in" color="#F26157" id="logButton"/> </Link>
             <Button primary label="My Recipes" color="#F26157" onClick={() => cookieVerify(cookies["auth-token"])} />
-            <Button primary label="Log Out" color="#F26157" />
+            <Button primary label="Log Out" color="#F26157" onClick={() => logOut("auth-token")} />
           </Nav>
           </Header>
         </Grommet>
