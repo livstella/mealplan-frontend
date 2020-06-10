@@ -39,7 +39,7 @@ export default function() {
 
 
   return (
-    <div className="masonry-wrapper">
+    <div >
         
       {data &&
         data.map((element, index) => (

@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
+import {Button, Form, FormField } from "grommet";
 import { useCookies } from "react-cookie";
-import "./styles/becomeUser.css";
+import "./styles/login.css";
+
 
 function login(setCookie) {
 
@@ -10,7 +12,7 @@ function login(setCookie) {
   
 
   axios
-    .post("https://dry-harbor-57855.herokuapp.com/login", {
+    .post("http://localhost:3001/user/login", {
       username: usernameInput,
       password: passwordInput,
     })
@@ -31,21 +33,17 @@ export default function () {
   return (
     <div className="layout-wrapper">
       <h3>Log in to save all the recipes!</h3>
-      <form onSubmit={()=> login(setCookie)}>
-        <label>
-          Username:
-          <input type="text" name="username" id="username" />
-        </label>{" "}
+      <div className="form-wrapper">
+      <Form onSubmit={()=> login(setCookie)}>
+        <FormField type="text" name="username" id="username" label="Username:" />
         <br />
         <br />
-        <label>
-          Password:
-          <input type="password" name="password" id="password" />
-        </label>{" "}
+        <FormField type="password" name="password" id="password" label="Password:" />
         <br />
         <br />
-        <input type="submit" value="Submit" id="submit" />
-      </form>
+        <Button type="submit" label="Submit" id="submit"primary={true} color="#F26157" />
+      </Form>
+      </div>
     </div>
   );
 }

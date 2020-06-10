@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { CheckBox } from 'grommet';
 import { useCookies } from "react-cookie";
 import './styles/shopping.css'
 
@@ -26,12 +27,12 @@ export default function(props){
     
 
 return(
-    <div>
+    <div className="shopping-body">
          {data &&
             data.map((element, index) => (
              <ul>
-                 <li><input type="checkbox"></input>{element.ingredient}- {element.amount}{element.unit}</li>
-  
+                 <li><input type="checkbox" id={element.id} /> <label for={element.id}>{element.ingredient} - {element.amount}{element.unit}</label></li>
+                
             </ul>
            ))}
     </div>

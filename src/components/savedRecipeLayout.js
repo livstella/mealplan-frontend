@@ -1,8 +1,7 @@
 import React from 'react';
+import { Box, Button, Text } from "grommet";
+import { FormSubtract } from "grommet-icons";
 import './styles/savedRecipeLayout.css'
-import { Button } from "grommet";
-
-
 
 
 export default function(props){
@@ -14,7 +13,13 @@ export default function(props){
                 <img src={imgUrl} alt={name}/>
                 <h3 className="masonry-title">{name}</h3>
                 <p className="masonry-description">{description} from {author}</p>
-                <Button primary label="Delete from My Recipes" onClick={deleteFunction} />
+                <Button hoverIndicator="light-1" onClick={deleteFunction}>
+                    <Box pad="small" direction="row" align="center" gap="small">
+                    <FormSubtract />
+                    <Text>Delete from My Recipes</Text>
+                    </Box>
+                </Button>
+
                 
             </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles/recipeLayout.css'
 import { Box, Button, Text } from "grommet";
 import { Add } from "grommet-icons";
+import './styles/recipeLayout.css'
 
 
 
@@ -15,11 +15,11 @@ export default function(props){
             <h3 className="masonry-title">{name}</h3>
             <p className="masonry-description">{description} from {author}</p>
             <Button hoverIndicator="light-1" onClick={saveFunction}>
-        <Box pad="small" direction="row" align="center" gap="small">
-          <Add />
-          <Text>Add to my recipes</Text>
-        </Box>
-      </Button>
+             <Box pad="small" direction="row" align="center" gap="small">
+              <Add />
+              <Text>Add to my recipes</Text>
+             </Box>
+           </Button>
         </div>
         </div>
     )}

@@ -40,6 +40,7 @@ export default function(props){
                   })
                 .then(function (response) {
                   console.log(response);
+                  window.location.href = "/my-recipes";
                 })
                 .catch(function (error) {
                   console.log(error);
@@ -51,9 +52,11 @@ export default function(props){
 
 
     return(
-        <div>
-            <ShoppingLayout />
-            <div className="masonry-wrapper">
+        <div className="save-wrapper">
+            <div className="shopping-wrapper">
+              <ShoppingLayout />
+            </div>
+            <div >
             
             {data &&
             data.map((element, index) => (
