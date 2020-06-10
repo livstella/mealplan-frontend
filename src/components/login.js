@@ -19,7 +19,7 @@ function login(setCookie) {
     .then(function (response) {
       // handle success
       setCookie("auth-token", response.data);
-      window.location.href = "/my-recipes";
+      
     })
     .catch(function (error) {
       // handle error
