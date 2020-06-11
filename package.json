@@ -1,4 +1,5 @@
 {
+  "proxy":"https://dry-harbor-57855.herokuapp.com",
   "name": "meal-plan-front",
   "version": "0.1.0",
   "private": true,

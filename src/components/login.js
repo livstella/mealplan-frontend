@@ -13,7 +13,7 @@ function login(setCookie) {
   
 
   axios
-    .post("dry-harbor-57855.herokuapp.com/user/login", {
+    .post("/user/login", {
       username: usernameInput,
       password: passwordInput,
     })
