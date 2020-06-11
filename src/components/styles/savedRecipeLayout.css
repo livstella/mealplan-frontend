@@ -40,10 +40,12 @@ body {
   }
   .masonry-content {
     overflow: hidden;
+    
   }
   .masonry-item {
     color: #111111;
     background-color: #f9f9f9;
+
   }
   .masonry-title, .masonry-description {
     margin: 0;
@@ -62,6 +64,12 @@ body {
 
   img{
       max-height: 300px;
+      min-height: 300px;
       max-width: 310px;
       object-fit: cover;
   }
+
+  a {
+    text-decoration: none;
+  }
+ 

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect  } from 'react';
 import { Link, Switch, Route } from "react-router-dom";
-import { Anchor, Box, Grommet, Header, Nav, Button, Menu  } from "grommet";
+import { Anchor, Box, Grommet, Header, Nav, Button } from "grommet";
 import { Home } from "grommet-icons";
 import { grommet } from "grommet/themes";
 import axios from "axios";
@@ -10,6 +10,8 @@ import Recipes from './components/recipe';
 import BecomeUser from './components/becomeUser';
 import LogIn from './components/login'
 import MyRecipes from './components/myRecipes'
+
+
 
 
 const cookieVerify = (token) => {
@@ -34,6 +36,24 @@ const cookieVerify = (token) => {
 
 function App() {  
   const [cookies, setCookie, removeCookie] = useCookies(["myCookies"]);
+  let [cookieTruth, setCookieTruth]= useState(0)
+
+
+  useEffect(() => {
+    if (cookies["auth-token"]){
+    setCookieTruth(1);
+    }else {setCookieTruth(0)}
+
+
+    
+  },[]);
+
+
+  const renderButton=()=>{
+    if (cookieTruth===1){
+      return <Button primary label="Log Out" color="#F26157" onClick={() => logOut("auth-token")} /> 
+    }else { return <Link to="/login">  <Button primary label="Log in" color="#F26157" id="logButton"/> </Link>}
+  }
 
   
 function logOut(tokenCookie){
@@ -41,6 +61,8 @@ function logOut(tokenCookie){
   window.location.href = "/";
 
 }
+
+
 
   return (
     <div className="App">  
@@ -51,13 +73,12 @@ function logOut(tokenCookie){
             </Box>
           <Nav direction="row">
             <Link to="/become-user"> <Button primary label="Sign me up!"color="#F26157" /> </Link>
-            <Link to="/login">  <Button primary label="Log in" color="#F26157" id="logButton"/> </Link>
             <Button primary label="My Recipes" color="#F26157" onClick={() => cookieVerify(cookies["auth-token"])} />
-            <Button primary label="Log Out" color="#F26157" onClick={() => logOut("auth-token")} />
-  
+             {renderButton()}
           </Nav>
           </Header>
         </Grommet>
+        
         
         <Switch>
             <Route exact path="/">

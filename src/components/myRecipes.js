@@ -67,6 +67,7 @@ export default function(props){
                 description={element.description}
                 author={element.author}
                 deleteFunction={()=>deleteFunction(element.savedid, cookies["auth-token"])}
+                source={element.link}
                 
                 />
                 

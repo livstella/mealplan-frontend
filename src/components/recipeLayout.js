@@ -14,12 +14,14 @@ export default function(props){
             <img src={imgUrl} alt={name}/>
             <h3 className="masonry-title">{name}</h3>
             <p className="masonry-description">{description} from {author}</p>
+            <div className="button-div2">
             <Button hoverIndicator="light-1" onClick={saveFunction}>
              <Box pad="small" direction="row" align="center" gap="small">
               <Add />
               <Text>Add to my recipes</Text>
              </Box>
            </Button>
+           </div>
         </div>
         </div>
     )}
