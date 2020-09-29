@@ -11,6 +11,10 @@ Using NodeJS hosted on heroku. [Code here](https://github.com/livstella/mealplan
 
 ### To start the application
 
+`npm install`
+
+To install all dependencies
+
 `npm start`
 
 Runs the app in the development mode.<br />
