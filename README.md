@@ -1,4 +1,4 @@
-# App to create shopping a list based on recipes
+# App to create a shopping list based on recipes
 
 ![Demo GIF](GIF.gif)
 
