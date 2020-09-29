@@ -6,7 +6,7 @@
 Using PostgreSQL, hosted on ElephantSQL.
 
 ### Server
-Using NodeJS hosted on heroku. [Code](https://github.com/livstella/mealplan-server)
+Using NodeJS hosted on heroku. [Code here](https://github.com/livstella/mealplan-server)
 
 
 ### To start the application
