@@ -1,5 +1,7 @@
 # App to create shopping a list based on recipes
 
+![Demo GIF](GIF.gif)
+
 ### Database
 Using PostgreSQL, hosted on ElephantSQL.
 
